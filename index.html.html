@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SKIN1004 | Colección Centella</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            color: #7D6752;
+        }
+        .navbar-custom {
+            background-color: #7e6e62 !important;
+            border-bottom: 1px solid #F3EBE6;
+        }
+        .navbar-brand {
+            font-weight: lighter;
+            color: #fff !important;
+            letter-spacing: 1px;
+            text-align: center;
+            flex: 1 1 auto;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar-social {
+            color: #fff;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .navbar-social a {
+            color: #fff;
+            transition: color 0.2s;
+        }
+        .navbar-social a:hover {
+            color: #d6d4d3;
+        }
+        .hero-section {
+            background: url('https://www.beautystore.cl/wp-content/uploads/2024/06/Banner_BG_Skin1004.jpg') center/cover no-repeat;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(41, 29, 18, 0.45);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+        .hero-subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+        .product-card {
+            border: none;
+            box-shadow: 0 2px 8px rgba(125, 103, 82, 0.07);
+            border-radius: 1rem;
+            transition: box-shadow 0.2s;
+            background: #fff;
+        }
+        .product-card:hover {
+            box-shadow: 0 4px 16px rgba(125, 103, 82, 0.15);
+        }
+        .product-img {
+            height: 180px;
+            object-fit: contain;
+            background: #F3EBE6;
+            border-radius: 1rem 1rem 0 0;
+        }
+        .btn-brown {
+            background-color: #7D6752;
+            color: #fff;
+            border: none;
+            transition: background 0.2s, color 0.2s;
+        }
+        .btn-brown:hover, .btn-brown:focus {
+            background-color: #5e4e3e;
+            color: #fff;
+        }
+        .btn-brown.active, .btn-brown.added {
+            background-color: #fff !important;
+            color: #7D6752 !important;
+            border: 1px solid #7D6752;
+        }
+        .btn-gold {
+            background-color: #b9b9b9;
+            color: #fff;
+            border: none;
+        }
+        .btn-gold:hover, .btn-gold:focus {
+            background-color: #bfbdbb;
+            color: #fff;
+        }
+        .info-section {
+            background: #F3EBE6;
+            padding: 3rem 0;
+        }
+        .info-title {
+            color: #7D6752;
+            font-weight: bold;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .info-text {
+            color: #7D6752;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+        .centella-img {
+            width: 100%;
+            border-radius: 1rem;
+            object-fit: cover;
+            max-height: 320px;
+            min-height: 220px;
+            display: block;
+        }
+        .offcanvas-header {
+            border-bottom: 1px solid #F3EBE6;
+        }
+        .offcanvas-body {
+            background: #fff;
+        }
+        .cart-total {
+            font-weight: bold;
+            color: #7D6752;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            border-top: 1px solid #F3EBE6;
+            padding-top: 1rem;
+        }
+        .remove-item-btn {
+            color: #7D6752;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .remove-item-btn:hover {
+            color: #d9534f;
+        }
+        @media (max-width: 575.98px) {
+            .navbar-brand {
+                font-size: 1rem;
+            }
+            .navbar-social {
+                font-size: 1.1rem;
+            }
+        }
+        /* Navbar flex for inline brand and icons */
+        .navbar-flex {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-custom">
+        <div class="container navbar-flex">
+            <span class="navbar-brand">SKIN1004 | THE GIFT FROM THE UNTOUCHED NATURE</span>
+            <div class="navbar-social">
+                <a href="https://www.instagram.com/skin1004official" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.facebook.com/skin1004global/" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.youtube.com/channel/UCslty1jg7F3mpGM3VMjv8qg/featured" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                <a href="https://www.tiktok.com/@skin1004_official" target="_blank" rel="noopener" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section position-relative">
+        <div class="hero-overlay"></div>
+        <div class="hero-content py-5">
+            <div class="hero-title">COLECCIÓN CENTELLA</div>
+            <div class="hero-subtitle">HECHA CON CENTELLA PURA DE MADAGASCAR</div>
+        </div>
+    </section>
+
+    <!-- Productos Destacados -->
+    <section class="container py-5">
+        <h2 class="text-center mb-5" style="color:#7D6752; font-weight:bold;">PRODUCTOS DESTACADOS</h2>
+        <!-- Primera fila -->
+        <div class="row g-4 justify-content-center mb-0">
+            <!-- Producto 1 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://holyskin.fr/cdn/shop/files/SKIN1004-Madagascar-Centella-Asiatica-100-Ampoule.webp?v=1744447777" class="card-img-top product-img" alt="Sérum de Centella">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">SÉRUM DE CENTELLA</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 290</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="SÉRUM DE CENTELLA" data-price="290">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 2 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://www.essentials.lk/cdn/shop/files/Skin1004MadagascarCentellaLightCleansingOil200ml.jpg?v=1725858135" class="card-img-top product-img" alt="Aceite Limpiador">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">ACEITE LIMPIADOR</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 66,50</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="ACEITE LIMPIADOR" data-price="66.5">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 3 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://m.media-amazon.com/images/I/41o-GKOTTKL._SL1000_.jpg" class="card-img-top product-img" alt="Limpiador Facial">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">LIMPIADOR FACIAL</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 121</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="LIMPIADOR FACIAL" data-price="121">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Producto 4 -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://www.pielcoreana.com/cdn/shop/files/3_ef862715-439d-445f-b90d-28aaac805979.png?v=1712363960" class="card-img-top product-img" alt="Crema de Centella">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">CREMA DE CENTELLA</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 110</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="CREMA DE CENTELLA" data-price="110">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Segunda fila -->
+        <div class="row g-4 justify-content-center mt-0">
+            <!-- SERÚM ILUMINADOR -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://fiduciamakeupbo.com/wp-content/uploads/2024/09/ampoule-blanco.jpg" class="card-img-top product-img" alt="Serúm Iluminador">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">SERÚM ILUMINADOR</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 380</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="SERÚM ILUMINADOR" data-price="380">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- GEL ILUMINADOR -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://static.wixstatic.com/media/f5a2cd_f71a84edc74b4038b5ecc5f8643fe6e3~mv2.webp/v1/fill/w_560,h_560,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/f5a2cd_f71a84edc74b4038b5ecc5f8643fe6e3~mv2.webp" class="card-img-top product-img" alt="Gel Iluminador">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">GEL ILUMINADOR</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 110</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="GEL ILUMINADOR" data-price="110">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- TÓNICO ACLARANTE -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://cdn.salla.sa/nGgdb/eb3d80e4-88f2-4af5-bbac-9a4d2ec07ba5-1000x1000-CXk6FyIjxU7eBt6TtzZdf4Iyn2b2Z4MZdYiLMz75.jpg" class="card-img-top product-img" alt="Tónico Aclarante">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">TÓNICO ACLARANTE</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 280</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="TÓNICO ACLARANTE" data-price="280">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- CREMA ACLARANTE -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://topbeauty.pe/wp-content/uploads/2024/12/SKIN1004-MADAGASCAR-CENTELLA-TONE-BRIGHTENING-CAPSULE-CREAM-75ml.jpg" class="card-img-top product-img" alt="Crema Aclarante">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">CREMA ACLARANTE</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 110</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="CREMA ACLARANTE" data-price="110">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tercera fila -->
+        <div class="row g-4 justify-content-center mt-0">
+            <!-- CREMA EN GEL POREMIZING -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://pielboliviana.com/wp-content/uploads/2025/01/27.png" class="card-img-top product-img" alt="Crema en Gel Poremizing">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">CREMA POREMIZING</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 105</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="CREMA EN GEL POREMIZING" data-price="105">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- PROTECTOR SOLAR -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://peachesandcremeshop.com/cdn/shop/files/SKIN1004-54-01.jpg?v=1747383624" class="card-img-top product-img" alt="Protector Solar">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">PROTECTOR SOLAR</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 240</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="PROTECTOR SOLAR" data-price="240">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- MASCARILLA DE ARCILLA -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://lilabeauty.com.au/cdn/shop/products/buy-skin1004-madagascar-centella-poremizing-quick-clay-stick-mask-27g-at-lila-beauty-korean-and-japanese-beauty-skin-care-940389.jpg?v=1741092580" class="card-img-top product-img" alt="Mascarilla de Arcilla">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">MASCARILLA DE ARCILLA</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 188</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="MASCARILLA DE ARCILLA" data-price="188">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+            <!-- SERÚM POREMIZING -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="card product-card h-100">
+                    <img src="https://cdn11.bigcommerce.com/s-7p5jn6i1wf/images/stencil/1280x1280/products/1525/4609/skin1004-skin1004-madagascar-centella-poremizing-fresh-ampoule__11351.1725356721.jpg?c=1" class="card-img-top product-img" alt="Serúm Poremizing">
+                    <div class="card-body text-center">
+                        <h5 class="card-title mb-2" style="color:#7D6752;">SERÚM POREMIZING</h5>
+                        <p class="card-text mb-3" style="color:#d4af37; font-weight:bold;">Bs. 188</p>
+                        <button class="btn btn-brown w-100 add-to-cart" data-name="SERÚM POREMIZING" data-price="188">Añadir al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Botón Compra Ahora -->
+        <div class="text-center mt-5">
+            <button class="btn btn-gold btn-lg px-5" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartOffcanvas" aria-controls="cartOffcanvas">
+                COMPRA AHORA
+            </button>
+        </div>
+    </section>
+
+    <!-- Offcanvas Carrito -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="cartOffcanvasLabel" style="color:#7D6752;">Tu carrito</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-group mb-3" id="cart-list">
+                <!-- Productos seleccionados aparecerán aquí -->
+            </ul>
+            <div class="cart-total" id="cart-total" style="display:none;">
+                Total: Bs. <span id="cart-total-value">0.00</span>
+            </div>
+            <button class="btn btn-brown w-100 mt-4" id="checkout-btn" style="display:none;">REALIZAR PAGO</button>
+
+            <!-- Modal de Pago con QR SIN pantalla opaca -->
+            <div class="modal fade" id="qrModal" tabindex="-1" aria-labelledby="qrModalLabel" aria-hidden="true" data-bs-backdrop="false">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content" style="border-radius:1rem;">
+                        <div class="modal-header" style="border-bottom:1px solid #F3EBE6;">
+                            <h5 class="modal-title" id="qrModalLabel" style="color:#7D6752;">Escanea el QR de pago</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="modal-body text-center">
+                            <div style="width:220px; height:220px; background:#F3EBE6; border-radius:1rem; margin:0 auto; display:flex; align-items:center; justify-content:center;">
+                                <img src="https://borealtech.com/wp-content/uploads/2018/10/codigo-qr-1024x1024-1.jpg" alt="QR de pago" style="max-width:200px; max-height:200px; border-radius:0.7rem;">
+                            </div>
+                            <div class="mt-3" style="color:#7D6752;">Abre tu app bancaria y escanea el código para completar el pago.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Mostrar modal QR al hacer click en "REALIZAR PAGO"
+                document.getElementById('checkout-btn').onclick = function() {
+                    var qrModal = new bootstrap.Modal(document.getElementById('qrModal'), { backdrop: false });
+                    qrModal.show();
+                };
+            </script>
+                
+            </script>
+        </div>
+    </div>
+
+    <!-- Sección informativa Centella Asiática -->
+    <section class="info-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="info-title">CENTELLA ASIÁTICA</div>
+                    <div class="info-text" style="font-family: Garamond, serif;">
+                        La centella asiática, también conocida como “hierba del tigre”, es una planta con poderosas propiedades regenerativas que se ha convertido en un ingrediente esencial en el skincare gracias a su capacidad para estimular la producción de colágeno, mejorar la elasticidad de la piel, acelerar la cicatrización, reducir marcas y cicatrices, calmar la irritación y la inflamación, combatir el acné, proteger contra el envejecimiento prematuro con su acción antioxidante y mantener la piel profundamente hidratada y nutrida, ofreciendo una solución natural y efectiva para una piel sana, firme y luminosa.
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <img src="https://www.thepinkfoundry.com/cdn/shop/articles/Uses_of_Centella_Asiatica_and_when_to_use_it-min_e9fe890e-847d-41e3-a456-e3d29a8e0a99.png?v=1745843268&width=2048" alt="Centella Asiática" class="centella-img m-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Carrito simple en memoria
+        const cart = [];
+
+        function formatPrice(num) {
+            // Para mostrar decimales con coma si corresponde
+            return num % 1 === 0 ? num : num.toFixed(2).replace('.', ',');
+        }
+
+        function updateCartDisplay() {
+            const cartList = document.getElementById('cart-list');
+            const cartTotal = document.getElementById('cart-total');
+            const cartTotalValue = document.getElementById('cart-total-value');
+            const checkoutBtn = document.getElementById('checkout-btn');
+            cartList.innerHTML = '';
+            let total = 0;
+            if (cart.length === 0) {
+                cartList.innerHTML = '<li class="list-group-item text-center text-muted">Tu carrito está vacío.</li>';
+                cartTotal.style.display = 'none';
+                checkoutBtn.style.display = 'none';
+                // Quitar estado "added" de los botones
+                document.querySelectorAll('.add-to-cart').forEach(btn => btn.classList.remove('added'));
+                return;
+            }
+            cart.forEach((item, idx) => {
+                total += item.price * item.qty;
+                cartList.innerHTML += `
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>
+                            ${item.name} <span class="badge bg-light text-brown ms-2">${item.qty}x</span>
+                        </span>
+                        <span class="d-flex align-items-center">
+                            Bs. ${formatPrice(item.price * item.qty)}
+                            <button class="remove-item-btn ms-2" data-idx="${idx}" title="Eliminar"><i class="bi bi-x-lg"></i></button>
+                        </span>
+                    </li>
+                `;
+            });
+            cartTotalValue.textContent = formatPrice(total);
+            cartTotal.style.display = '';
+            checkoutBtn.style.display = '';
+            // Marcar botones de productos añadidos
+            document.querySelectorAll('.add-to-cart').forEach(btn => {
+                const name = btn.getAttribute('data-name');
+                if (cart.find(item => item.name === name)) {
+                    btn.classList.add('added');
+                } else {
+                    btn.classList.remove('added');
+                }
+            });
+
+            // Mostrar precio unitario y controles de cantidad a la derecha
+            document.querySelectorAll('#cart-list .list-group-item').forEach((li, idx) => {
+                if (cart.length > 0 && cart[idx]) {
+                    // Limpiar contenido de la derecha
+                    const right = li.querySelector('span.d-flex');
+                    right.innerHTML = `
+                        <span class="me-3" style="color:#7D6752; font-size:1rem;">Bs. ${formatPrice(cart[idx].price)}</span>
+                        <button class="btn btn-sm btn-outline-secondary qty-btn" data-action="decrease" data-idx="${idx}" style="padding:0 8px;line-height:1;">-</button>
+                        <span class="mx-2" style="min-width:24px;display:inline-block;text-align:center;">${cart[idx].qty}</span>
+                        <button class="btn btn-sm btn-outline-secondary qty-btn" data-action="increase" data-idx="${idx}" style="padding:0 8px;line-height:1;">+</button>
+                        <button class="remove-item-btn ms-2" data-idx="${idx}" title="Eliminar"><i class="bi bi-x-lg"></i></button>
+                    `;
+                }
+            });
+
+            // Eventos para + y -
+            document.querySelectorAll('.qty-btn').forEach(btn => {
+                btn.onclick = function() {
+                    const idx = parseInt(this.getAttribute('data-idx'));
+                    const action = this.getAttribute('data-action');
+                    if (action === 'increase') {
+                        cart[idx].qty += 1;
+                    } else if (action === 'decrease') {
+                        cart[idx].qty -= 1;
+                        if (cart[idx].qty <= 0) {
+                            cart.splice(idx, 1);
+                        }
+                    }
+                    updateCartDisplay();
+                };
+            });
+            // Asignar eventos a los botones de eliminar
+            document.querySelectorAll('.remove-item-btn').forEach(btn => {
+                btn.onclick = function() {
+                    const idx = parseInt(this.getAttribute('data-idx'));
+                    cart.splice(idx, 1);
+                    updateCartDisplay();
+                };
+            });
+        }
+
+        document.querySelectorAll('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price').replace(',', '.'));
+                const found = cart.find(item => item.name === name);
+                if (found) {
+                    found.qty += 1;
+                } else {
+                    cart.push({ name, price, qty: 1 });
+                }
+                updateCartDisplay();
+            });
+        });
+
+        // Limpiar carrito al cerrar offcanvas (opcional)
+        document.getElementById('cartOffcanvas').addEventListener('hidden.bs.offcanvas', function () {
+            // Opcional: No limpiar para mantener productos
+            // cart.length = 0;
+            // updateCartDisplay();
+        });
+
+        // Inicializar carrito vacío al cargar
+        updateCartDisplay();
+    </script>
+
+    <footer style="background-color: #927d6f; color: #fff; padding: 2.5rem 0 2rem 0; font-size: 1rem;">
+        <div class="container">
+            <div class="row">
+                <!-- Izquierda -->
+                <div class="col-md-6 text-md-start text-center mb-4 mb-md-0">
+                    <div style="font-size:1.5rem; font-weight:bold; letter-spacing:1px;">
+                        SKIN1004
+                    </div>
+                    <div class="mt-2">
+                        <strong>Servicio al Cliente:</strong>
+                        <a href="mailto:hello@skin1004korea.com" style="color:#fff; text-decoration:underline;">hello@skin1004korea.com</a>
+                    </div>
+                    <div>
+                        <strong>Consulta de Ventas al por Mayor:</strong>
+                        <a href="mailto:sales@skin1004korea.com" style="color:#fff; text-decoration:underline;">sales@skin1004korea.com</a>
+                    </div>
+                    <div class="mt-3" style="max-width:500px;">
+                        Todo lo que toca la piel debe ser puro. Permítenos entregarte la naturaleza intacta y su pureza a tu piel, para ayudarte a descubrir tu mejor piel.
+                    </div>
+                </div>
+                <!-- Derecha -->
+                <div class="col-md-6 text-md-end text-center" style="font-size:1.05rem;">
+                    <div>
+                        <strong>Craver Corporation</strong><br>
+                        CEO: Juhyck Cheun, Jicheol Lee<br>
+                        Ubicación de la Empresa: Piso 11-12, Gangnam N Tower, 129 Teheran-ro, Gangnam-gu, Seúl, República de Corea<br>
+                        Número de Registro de la Empresa: 261-81-14845
+                    </div>
+                    <div class="mt-3">
+                        <strong>TIENDA PRINCIPAL (FLAGSHIP STORE)</strong><br>
+                        29, Myeongdong 6-gil, Jung-gu, Seúl, República de Corea
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
