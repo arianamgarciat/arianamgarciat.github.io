@@ -10,7 +10,7 @@ Tecnologías Utilizadas
 Funcionalidades
   Carrito de compras con funcionalidad de reducir y agregar unidades de uno o varios productos, te entrega el total de los precios y finalmente te da un QR de pago.
 Instrucciones de Uso
-  Link a Netlify: 
+  Link a Netlify: https://tiendavirtualskin.netlify.app/
 Estructura del Proyecto (opcional pero recomendado)
   Se encuentra todo en un solo archivo HTML
 Autor
